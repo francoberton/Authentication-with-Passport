@@ -9,7 +9,7 @@ var flash    = require('connect-flash');
 var passport= require('passport');
 module.exports = function(app) {
 	
-	mongoose.connect('mongodb://localhost/Quizzipedia', function(err) { 
+	mongoose.connect('mongodb://localhost/Database', function(err) { 
     	if(err) {
         	console.log('connection error', err);
     	} else {
