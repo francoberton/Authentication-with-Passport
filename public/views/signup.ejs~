@@ -1,0 +1,17 @@
+<div class="container">
+	<form class="form-authentication">
+		<h2 class="form-authentication-heading text-center"><%= title %></h2>
+		<label for="inputName" class="sr-only">Name</label>
+		<input id="inputName" class="form-control" placeholder="Name" required="" autofocus="" type="text" ng-model='user.name'>
+		<label for="inputSurname" class="sr-only">Surname</label>
+		<input id="inputSurname" class="form-control" placeholder="Surname" required="" autofocus="" type="text" ng-model='user.surname'>
+		<label for="inputEmail" class="sr-only">Email</label>
+		<input id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" type="email" ng-model='user.email'>
+		<label for="inputUsername" class="sr-only">Username</label>
+		<input id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" type="text" ng-model='user.username'>
+		<label for="inputPassword" class="sr-only">Password</label>
+		<input id="inputPassword" class="form-control" placeholder="Password" required="" type="password" ng-model='user.pwd'>
+		<button class="btn btn-lg btn-primary btn-block"  ng-click='signup(user)'>Signup</button>
+ 	</form>
+</div>
+

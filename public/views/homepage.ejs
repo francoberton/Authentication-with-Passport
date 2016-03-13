@@ -1,0 +1,11 @@
+<div class="container text-center">
+	<h1><%= title %></h1>
+	<div ng-show="!currentUser">
+	   <a href='#/signup'>Signup</a>
+	   <a href='#/signin'>Signin</a>
+	</div>
+	<div ng-show="currentUser">
+	   <h2>Benvenuto {{currentUser.local.name}}</h2>
+	   <button  class="btn btn-lg btn-primary " ng-click='logout()'>Logout</button>
+	</div>
+</div>

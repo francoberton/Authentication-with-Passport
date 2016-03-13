@@ -1,0 +1,70 @@
+
+angular.module('appRoutes', [])
+.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            templateUrl: '/homepage',
+	    controller: 'HomeController',
+	    resolve: {
+                      loggedin: checkCurrentUser
+                  }
+        })
+	.when('/signup', {
+	    templateUrl: '/signup',
+            controller: 'SignupController',
+	    resolve: {
+                      loggedin: checkLoggedin
+                  }
+        })
+	.when('/signin', {
+	    templateUrl: '/signin',
+            controller: 'SigninController',
+	    resolve: {
+                      loggedin: checkLoggedin
+                  }
+        })
+}]);
+
+ var checkCurrentUser = function($q, $http, $rootScope)
+    {
+        var deferred = $q.defer();
+    
+        $http.get('/loggedin').success(function(user)
+        {
+            $rootScope.errorMessage = null;
+            // User is Authenticated
+            if (user !== '0')
+            {
+                $rootScope.currentUser = user;
+            }
+            deferred.resolve();
+        });
+        
+        return deferred.promise;
+    }
+
+ var checkLoggedin = function($q, $http, $location, $rootScope)
+    {
+        var deferred = $q.defer();
+    
+        $http.get('/loggedin').success(function(user)
+        {
+            $rootScope.errorMessage = null;
+            // User is Authenticated
+            if (user !== '0')
+            {
+                $rootScope.currentUser = user
+		$location.path('/');
+		deferred.reject();
+            }
+	    else
+	    {	
+            	deferred.resolve();
+	    }
+        });
+        
+        return deferred.promise;
+    };
+
+
+

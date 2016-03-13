@@ -1,0 +1,14 @@
+angular.module('LoginCtrl', [])
+.controller('LoginController', function ($scope, $http, $location,$rootScope) {	
+	$scope.login = function(){
+		if( !$scope.username || $scope.username.length < 1|| !$scope.pwd || $scope.pwd.length < 1) return;
+		var user = {username: $scope.username, password: $scope.pwd}
+		$http.post('/login/',user).success(function(user){
+			if (user){
+				$rootScope.currentUser = user;
+				$location.path("/");}
+			else
+				$location.path('/login');
+			})
+	  	}	
+ });

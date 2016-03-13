@@ -1,0 +1,20 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #eee;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.form-authentication {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-authentication button{
+   margin-top:1em;	
+}
+
+a {
+  color: #00B7FF;
+}

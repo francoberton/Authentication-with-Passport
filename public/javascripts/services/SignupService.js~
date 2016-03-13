@@ -1,0 +1,8 @@
+angular.module('SignupService', [])
+.factory('Signup', function($http){
+    return {
+	SignupUser: function(user){console.log("cc");
+		return $http.post("/signup/",user);
+		}
+	};
+})

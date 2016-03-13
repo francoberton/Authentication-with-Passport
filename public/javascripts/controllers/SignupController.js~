@@ -1,0 +1,12 @@
+angular.module('SignupCtrl', [])
+.controller('SignupController', function ($scope, $http,$location,$rootScope, Signup) {
+
+ $scope.signup = function(user){
+        if(!user.name || user.name.length < 1 || !user.surname || user.surname.length < 1 ||  !user.email || user.email.length < 1 ||!user.username || user.username.length < 1 || !user.password || user.password.length < 1) return;
+	var userJSON = {name: user.name, surname: user.surname, email: user.email, username: user.username, password: user.password};
+ 	Signup.SignupUser(userJSON).success(function(user){    
+		$rootScope.currentUser = user;	
+		$location.path("/");	
+	})
+    }
+})
